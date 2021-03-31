@@ -33,15 +33,24 @@ for dates in alldata['Turkey']:
         recovered.append(dates["recovered"])
     
         deaths.append(dates["deaths"])	
-    
-    
+
+death = deaths[-1]
+confirme = confirmed[-1]
+recovere = recovered[-1]
+
 figure(num=None, figsize=(93,16), dpi=90, facecolor='w', edgecolor='k')
 style.use('ggplot')    
 
 title = 'Covid-19 Turkey'
-plt.xlabel('Dates')
+plt.xlabel('Number of days since the first case')
 plt.ylabel('Cases')
 plt.title(title)
+
+plt.text(75,3000000,recovere, size=10)
+
+plt.text(75,3300000,confirme, size=10)
+
+plt.text(75,3150000,death, size=10)
 
 plt.plot(confirmed,'r',label="Number of people infected")
 plt.plot(deaths,'b--',label="Number of Death")
